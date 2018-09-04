@@ -1,7 +1,6 @@
 from w88700126/python-docker-environment
-RUN yum -y install rsync subversion openssh-clients
+RUN yum -y install rsync subversion
 ADD server /server/server
-ADD shell /server/shell
 ADD shellrsync /server/shellrsync
 ADD cmd /server/cmd
 ADD rsync /etc
