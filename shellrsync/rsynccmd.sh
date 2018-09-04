@@ -27,10 +27,10 @@ do
         
         if [ "$2"x == "ALL"x ] || [ "$2"x == "all"x ] || [ "$2"x == ""x ]; then
                 echo -e "\n\nrsync PUSH CMD ALL==> ${servername},idx=$idx,ip=$ip,port=$port,cmdtxt=${1}.txt,cmddata=$3 start\n"
-                rsync -avz --delete ${1}".txt" root@$ip::server/cmd/${1}".txt" --port=$port --password-file=/etc/rsyncd.pass
+                rsync -avz --delete ${1}".txt" root@$ip::server$idx/cmd/${1}".txt" --port=$port --password-file=/etc/rsyncd.pass
         elif [ "$2" == "$idx" ]; then
                 echo -e "\n\nrsync PUSH CMD ONE==> ${servername},idx=$idx,ip=$ip,port=$port,cmdtxt=${1}.txt,cmddata=$3 start\n"
-                rsync -avz --delete ${1}".txt" root@$ip::server/cmd/${1}".txt" --port=$port --password-file=/etc/rsyncd.pass
+                rsync -avz --delete ${1}".txt" root@$ip::server$idx/cmd/${1}".txt" --port=$port --password-file=/etc/rsyncd.pass
         else
                 echo "no send===>$state"
         fi

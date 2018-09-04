@@ -33,11 +33,11 @@ do
 	if [ "$1"x == "ALL"x ] || [ "$1"x == "all"x ] || [ "$1"x == ""x ]; then
 		echo -e "\n\nrsync PUSH ALL==> ${servername},idx=$idx,ip=$ip,port=$port start\n"
 		#rsync -avzH --delete --progress "ssh -p $port" /server/upload/ root@$ip::server/server --password-file=/etc/rsyncd.pass
-		rsync -avz --delete --progress /server/upload/ root@$ip::server/server --port=$port --password-file=/etc/rsyncd.pass
+		rsync -avz --delete --progress /server/upload/ root@$ip::server$idx/server --port=$port --password-file=/etc/rsyncd.pass
 	elif [ "$1" == "$idx" ]; then
 		echo -e "\n\nrsync PUSH ONE==> ${servername},idx=$idx,ip=$ip,port=$port start\n"
 		#rsync -avzH --delete --progress "ssh -p $port" /server/upload/ root@$ip::server/server --password-file=/etc/rsyncd.pass
-		rsync -avz --delete --progress /server/upload/ root@$ip::server/server --port=$port --password-file=/etc/rsyncd.pass
+		rsync -avz --delete --progress /server/upload/ root@$ip::server$idx/server --port=$port --password-file=/etc/rsyncd.pass
 	else
 		echo "no send===>$state"
 	fi
