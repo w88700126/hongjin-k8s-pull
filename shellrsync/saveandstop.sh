@@ -1,0 +1,1 @@
+sh rsynccmd.sh saveandstop $0
